@@ -1,0 +1,4 @@
+D:\C# projects\DataAlleyDB\UnitTests\obj\Debug\net48\UnitTests.csprojAssemblyReference.cache
+D:\C# projects\DataAlleyDB\UnitTests\obj\Debug\net48\UnitTests.AssemblyInfoInputs.cache
+D:\C# projects\DataAlleyDB\UnitTests\obj\Debug\net48\UnitTests.AssemblyInfo.cs
+D:\C# projects\DataAlleyDB\UnitTests\obj\Debug\net48\UnitTests.csproj.CoreCompileInputs.cache

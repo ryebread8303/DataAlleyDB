@@ -1,0 +1,8 @@
+D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\net48\GraphLibrary.dll
+D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\net48\GraphLibrary.pdb
+D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\net48\GraphLibrary.csprojAssemblyReference.cache
+D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\net48\GraphLibrary.AssemblyInfoInputs.cache
+D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\net48\GraphLibrary.AssemblyInfo.cs
+D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\net48\GraphLibrary.csproj.CoreCompileInputs.cache
+D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\net48\GraphLibrary.dll
+D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\net48\GraphLibrary.pdb
