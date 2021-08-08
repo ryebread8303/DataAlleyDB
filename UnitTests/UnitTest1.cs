@@ -3,6 +3,7 @@ using System.Linq;
 using Xunit;
 using GraphLibrary;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace UnitTests
 {
@@ -10,7 +11,9 @@ namespace UnitTests
     {
         Guid BobsGuid = new Guid("00000000-0000-0000-0000-000000000001");
         Guid AlicesGuid = new Guid("00000000-0000-0000-0000-000000000002");
+        Guid RelationGuid = new Guid("00000000-0000-0000-0000-000000000003");
         Guid BadGuid = Guid.NewGuid();
+        XmlDocument SerializedDatabase = new XmlDocument();
         Dictionary<string,string> BobsProps = new Dictionary<string, string>();
         GraphDatabase Database = new GraphDatabase();
 
@@ -24,10 +27,26 @@ namespace UnitTests
             AlicesProps.Add("Bloodtype","A+");
             GraphNode Bob = new GraphNode(BobsGuid, BobsProps, "Person");
             GraphNode Alice = new GraphNode(AlicesGuid,AlicesProps, "Person");
-            GraphRelation Relation = new GraphRelation("test",Bob,Alice);
+            GraphRelation Relation = new GraphRelation(RelationGuid,"test",Bob,Alice);
             Database.AddNode(Bob);
             Database.AddNode(Alice);
             Database.AddRelationship(Relation);
+            string xmlrepresentation = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<Graph Version=""1.0.0"" Application=""DataAlley"">
+	<Node Id=""00000000-0000-0000-0000-000000000001"">
+		<Label>Person</Label>
+		<Property Name=""Name"">Bob</Property>
+		<Property Name=""Hobby"">Sportsball</Property>
+	</Node>
+	<Node Id=""00000000-0000-0000-0000-000000000002"">
+		<Label>Person</Label>
+		<Property Name=""Name"">Alice</Property>
+		<Property Name=""Hobby"">trains</Property>
+		<Property Name=""Bloodtype"">A+</Property>
+	</Node>
+	<Relation Id=""00000000-0000-0000-0000-000000000003"" Type=""test"" LeftNode=""00000000-0000-0000-0000-000000000001"" RightNode=""00000000-0000-0000-0000-000000000002"" />
+</Graph>";
+            SerializedDatabase.LoadXml(xmlrepresentation);
         }
         [Fact]
         public void GraphDatabase()
@@ -55,6 +74,18 @@ namespace UnitTests
         {
             Assert.Single(Database.V().hasKey("Bloodtype"));
             Assert.Empty(Database.V().hasKey("doodleheimer"));
+        }
+        [Fact]
+        public void Serialize_database()
+        {
+            //Given
+            Database.Serialize("testexport.xml");
+
+            //When
+            XmlDocument XMLDatabase = new XmlDocument();
+            XMLDatabase.LoadXml("testexport.xml");
+            //Then
+            Assert.Equal(XMLDatabase, SerializedDatabase);
         }
     }//endclass
 }//endnamespace

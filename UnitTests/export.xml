@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graph version="1.0.0">
+	<Node id="00000000-0000-0000-0000-000000000001">
+		<Label>person</Label>
+		<Property name="Name">Bob</Property>
+        <Property name="Hobby">Sportsball</Property>
+	</Node>
+	<Node id="00000000-0000-0000-0000-000000000002">
+		<Label>person</Label>
+		<Property name="Name">Alice</Property>
+        <Property name="Hobby">trains</Property>
+        <Property name="Bloodtype">A+</Property>
+	</Node>
+	<Relation id="00000000-0000-0000-0000-000000000003" type="test" leftnode="00000000-0000-0000-0000-000000000001" rightnode="00000000-0000-0000-0000-000000000002">
+	</Relation>
+</graph>

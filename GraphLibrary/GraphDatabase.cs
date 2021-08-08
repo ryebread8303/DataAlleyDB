@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using System.Reflection;
 namespace GraphLibrary
 {
@@ -144,27 +145,74 @@ namespace GraphLibrary
             RelationTable.Add(relation);
             relation.LeftNode.Relationships.Add(relation);
         }
+        public void Serialize (string filename)
+        {
+            // setup our settings for the xml writer. I want it to 
+            // indent lines for easy reading
+            XmlWriterSettings WriterOpts = new XmlWriterSettings();
+            WriterOpts.Indent = true;
+            WriterOpts.IndentChars = "\t";
+            // create the xml writer object
+            XmlWriter Writer = XmlWriter.Create(filename, WriterOpts);
+            Writer.WriteStartDocument();
+            // our root node is called Graph. It should have a version
+            // number in case I change the format later
+            Writer.WriteStartElement("Graph");
+            Writer.WriteAttributeString("Version", "1.0.0");
+            // Add list of nodes to xml
+            foreach (GraphNode node in this.NodeTable)
+            {
+                Writer.WriteStartElement("Node");
+                Writer.WriteAttributeString("Id", node.ID.ToString());
+                foreach (string label in node.Labels)
+                {
+                    Writer.WriteElementString("Label", label);
+                }
+                foreach (string key in node.Properties.Keys)
+                {
+                    Writer.WriteStartElement("Property");
+                    Writer.WriteAttributeString("Name", key);
+                    Writer.WriteString(node.Properties[key]);
+                    Writer.WriteEndElement();
+                }
+                Writer.WriteEndElement();
+            }
+            // Add list of relations/edges to xml
+            foreach (GraphRelation relation in this.RelationTable)
+            {
+                Writer.WriteStartElement("Relation");
+                Writer.WriteAttributeString("Id", relation.ID.ToString());
+                Writer.WriteAttributeString("Type", relation.RelationshipType);
+                Writer.WriteAttributeString("LeftNode", relation.LeftNode.ID.ToString());
+                Writer.WriteAttributeString("RightNode", relation.RightNode.ID.ToString());
+                foreach (string key in relation.Properties.Keys)
+                {
+                    Writer.WriteElementString("Property", relation.Properties[key]);
+                    Writer.WriteAttributeString("Name", key);
+                }
+                Writer.WriteEndElement();
+            }
+            //Finish the document
+            Writer.WriteEndElement();
+            Writer.WriteEndDocument();
+            Writer.Flush();
+            Writer.Close();
+        }
+
     }
     public class GraphRelation : GraphObject 
     {
         public GraphNode LeftNode;
         public GraphNode RightNode;
         public string RelationshipType;
-        public GraphRelation (string relationshiptype, GraphNode leftnode, GraphNode rightnode) : this(relationshiptype,new Dictionary<string,string>(),leftnode,rightnode) { }
-        public GraphRelation (string relationshiptype, Dictionary<string, string> properties, GraphNode leftnode, GraphNode rightnode) : base()
+        public GraphRelation (string relationshiptype, GraphNode leftnode, GraphNode rightnode) : this(Guid.NewGuid(),relationshiptype,new Dictionary<string,string>(),leftnode,rightnode) { }
+        public GraphRelation (Guid id, string relationshiptype, GraphNode leftnode, GraphNode rightnode) : this(id, relationshiptype,new Dictionary<string,string>(),leftnode,rightnode) { }
+        public GraphRelation (string relationshiptype, Dictionary<string, string> properties, GraphNode leftnode, GraphNode rightnode) : this(Guid.NewGuid(),relationshiptype,properties,leftnode,rightnode) { }
+        public GraphRelation (Guid id, string relationshiptype, Dictionary<string, string> properties, GraphNode leftnode, GraphNode rightnode) : base(id,properties)
         {
             LeftNode = leftnode;
             RelationshipType = relationshiptype;
             RightNode = rightnode;
-            Properties = properties;
         }
-    }
-    public static class Serializer
-    {
-        
-    }
-    public static class Deserializer
-    {
-        
     }
 }
