@@ -83,7 +83,7 @@ namespace UnitTests
 
             //When
             XmlDocument XMLDatabase = new XmlDocument();
-            XMLDatabase.LoadXml("testexport.xml");
+            XMLDatabase.Load("testexport.xml");
             //Then
             Assert.Equal(XMLDatabase, SerializedDatabase);
         }

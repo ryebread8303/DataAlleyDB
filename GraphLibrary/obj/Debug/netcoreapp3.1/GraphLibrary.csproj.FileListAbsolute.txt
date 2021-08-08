@@ -1,9 +1,0 @@
-D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\netcoreapp3.1\GraphLibrary.deps.json
-D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\netcoreapp3.1\GraphLibrary.dll
-D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\netcoreapp3.1\GraphLibrary.pdb
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netcoreapp3.1\GraphLibrary.csprojAssemblyReference.cache
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netcoreapp3.1\GraphLibrary.AssemblyInfoInputs.cache
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netcoreapp3.1\GraphLibrary.AssemblyInfo.cs
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netcoreapp3.1\GraphLibrary.csproj.CoreCompileInputs.cache
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netcoreapp3.1\GraphLibrary.dll
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netcoreapp3.1\GraphLibrary.pdb
