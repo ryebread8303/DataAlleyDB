@@ -388,5 +388,8 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
+obj/
+bin/
+
 bin/Debug/
 obj/Debug/
