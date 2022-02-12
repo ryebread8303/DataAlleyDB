@@ -87,5 +87,18 @@ namespace UnitTests
             //Then
             Assert.Equal(XMLDatabase, SerializedDatabase);
         }
+        [Fact]
+        public void Deserialize_database()
+        {
+            //Given
+            //testexport.xml already exists
+            //When
+            GraphDatabase DatabaseCopy = new GraphDatabase();
+            DatabaseCopy.LoadXML("testexport.xml");
+            //serialize the copy so that I can compare with the first export manually
+            DatabaseCopy.Serialize("testexportcopy.xml");
+            //Then
+            Assert.Equal(Database.V(), DatabaseCopy.V());
+        }
     }//endclass
 }//endnamespace
