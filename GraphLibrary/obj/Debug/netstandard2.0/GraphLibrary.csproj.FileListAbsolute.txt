@@ -1,9 +1,0 @@
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netstandard2.0\GraphLibrary.csprojAssemblyReference.cache
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netstandard2.0\GraphLibrary.AssemblyInfoInputs.cache
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netstandard2.0\GraphLibrary.AssemblyInfo.cs
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netstandard2.0\GraphLibrary.csproj.CoreCompileInputs.cache
-D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\netstandard2.0\GraphLibrary.deps.json
-D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\netstandard2.0\GraphLibrary.dll
-D:\C# projects\DataAlleyDB\GraphLibrary\bin\Debug\netstandard2.0\GraphLibrary.pdb
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netstandard2.0\GraphLibrary.dll
-D:\C# projects\DataAlleyDB\GraphLibrary\obj\Debug\netstandard2.0\GraphLibrary.pdb
